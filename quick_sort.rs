@@ -1,6 +1,4 @@
 use std::time::Instant;
-use std::vec::Vec;
-use std::convert::TryInto;
 
 fn main() {
 
@@ -15,19 +13,17 @@ fn main() {
 
 }
 
-fn sort(array: [i32; 5]) -> [i32; 5] {
+fn sort(mut array: [i32; 5]) -> [i32; 5] {
 
-    let mut collected_iterator: Vec<i32> = Vec::from(&array[0..5]);
+    print!("Unsorted array {:?}", array);
 
-    print!("Unsorted array {:?}", collected_iterator);
-
-    let length = collected_iterator.len();
+    let length = array.len();
 
     if length > 0 {
-        quick_sort(&mut collected_iterator[0..5], 0, length-1);   
+        quick_sort(&mut array[0..5], 0, length-1);   
     }
 
-    return collected_iterator.try_into().expect("slice with incorrect length");
+    return array;
 
 }
 
