@@ -2,7 +2,7 @@ use std::time::Instant;
 
 fn main() {
 
-    let mut array: [i32; 5] = [5, 2, 1, -1, 100];
+    let mut array: [i32; 5] = [1, 2, 3, 4, -1];
     let start = Instant::now();
 
     array = sort(array);    
@@ -33,7 +33,7 @@ fn heap_sort(array: &mut [i32]) {
         heapify(array, heap_size, i);
     }
 
-    for i in (0..heap_size).rev() {
+    for i in (1..heap_size).rev() {
         let temp = array[0];
         array[0] = array[i];
         array[i] = temp;
